@@ -1,7 +1,27 @@
-var coffee = new coffee();
+class Mug {
+  constructor() {
+    this.coffee = 0;
+  }
 
-if (coffee.empty);
-  coffee.refill();
-} else {
-  coffee.drink;
+  refill() {
+    this.coffee = 100;
+  }
+
+  drink() {
+    if (this.coffee > 0) {
+      this.coffee--;
+    }
+  }
+
+  isEmpty() {
+    return this.coffee === 0;
+  }
 }
+
+var myMug = new Mug();
+do {
+  if (myMug.isEmpty()) {
+    myMug.refill();
+  }
+  myMug.drink();
+} while (!myMug.isEmpty());
